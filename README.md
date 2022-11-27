@@ -42,6 +42,13 @@ To create a timer for a radio socket, three different steps are performed.
 * Radio Sender Module
 * Computer - Ubuntu
 * Python 3.10
+* pySerial
+
+Installation for example via PyPI:
+
+```sh
+pip install pyserial
+```
 
 ## Contributing
 
