@@ -2,6 +2,20 @@
 
 This project aims to use an Arduino (in this case an Arduino Uno, model: R3) to implement a timer for a regular radio socket (including a remote control) operating on 433 MHz (probably the same can be done for 868 MHz devices, but this will require other Arduino transmitter and receiver modules).
 
+## Project structure
+timer-for-radio-socket/
+├── LICENSE
+├── README.md
+├── src/
+│   ├── csv_interaction.py
+│   ├── play_radio_signal.ino
+│   ├── receive_and_pass_radio_signal.ino
+│   ├── record_radio_signal.py
+│   └── timer_for_radio_socket.ino
+└── tests/
+    ├── test_play_radio_signal_with_LED.ino
+    └── test_receive_radio_signal_from_switch.ino
+
 ## Table of content
 
 - [**Getting Started**](#getting-started)
