@@ -26,10 +26,10 @@ while True:
 	# Keep looping until there is data
 	while (arduinoData.inWaiting() == 0):
 		pass
-	dataPacket = arduinoData.readline()
+	dataPacket0 = arduinoData.readline()
+	dataPacket1 = arduinoData.readline()
 	i = i + 1
-	state_data = [[dataPacket]]
-	#print(state_data)
+	state_data = [[dataPacket0], [dataPacket1]]
 	append_to_existing_csv(filename, state_data)
 	
 	# Press Enter for finishing the recording

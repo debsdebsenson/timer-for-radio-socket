@@ -14,11 +14,13 @@ def create_csv_file(filename, fields):
 
 def append_to_existing_csv(filename, rows):
 
-    # writing to csv file 
-    with open(filename, 'a') as csvfile:
+	# writing to csv file 
+	with open(filename, 'a') as csvfile:
 
-        # creating a csv writer object 
-        csvwriter = csv.writer(csvfile)
+		# creating a csv writer object 
+		csvwriter = csv.writer(csvfile)
 
-        # writing the data rows
-        csvwriter.writerows(rows)
+		# writing the data rows
+		state = rows[0]
+		time_stamp = rows[1]
+		csvwriter.writerows(rows)
