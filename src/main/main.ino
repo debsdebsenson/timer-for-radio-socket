@@ -27,6 +27,7 @@ int first_signal = 1;
 unsigned long time_stamp_millis;
 
 void setup() {
+  pinMode(RxD_pin, INPUT);    // declare signal-from-receiver pin as input
   pinMode(TxD_pin, OUTPUT);  // declare TxD_pin ( = LED ) as output
   pinMode(pushButton_pin, INPUT);    // declare pushButton_pin as input
   Serial.begin(9600);
@@ -160,13 +161,19 @@ int learn_radio_signal(int first_signal){
   // TBD: maybe first_signal needs to become a global variable
   // Idea: the button is pressed, system is ready to learn, when first signal is received,
   // the timer should be set to 0, from this moment on the signal is recorded.
-  Serial.println(first_signal);
+  //Serial.println(first_signal);
   first_signal = set_counter_first_event(first_signal); // set counter to 0 at first event
-  Serial.println(first_signal);
+  //Serial.println(first_signal);
+
+  receive_signal()
 
   // TBD: The learn function needs to save the time_value and the type of the state change (from LOW to HIGH or HIGH to LOW) as data in an array.
   //timer_value = TCNT1; // read timer value
   //Serial.println(timer_value);
 
   return first_signal;
+}
+
+void receive_signal(){
+Serial.println(digitalRead(RxD_pin))
 }
