@@ -112,7 +112,7 @@ int check_button_state(int current_button_state, int new_button_state, int first
     // * remove timer_value = placeholder_button_state(new_button_state);
     digitalWrite(TxD_pin, new_button_state);  // turn off LED (new_button_state = LOW) or // turn on LED (new_button_state = HIGH)
     Serial.println("A");
-    timer_value = placeholder_button_state(new_button_state);
+    placeholder_button_state(new_button_state);
   }
   else if (current_button_state == HIGH && new_button_state == LOW) {
     // TBD when learning function is implemented: change this state:
@@ -120,7 +120,7 @@ int check_button_state(int current_button_state, int new_button_state, int first
     digitalWrite(TxD_pin, new_button_state);  // turn off LED (new_button_state = LOW) or // turn on LED (new_button_state = HIGH)
     Serial.println("B");
     Serial.println("-------------");
-    timer_value = placeholder_button_state(new_button_state);
+    placeholder_button_state(new_button_state);
   }
   else {
     if (current_button_state == HIGH && new_button_state == HIGH) { // Button is pressed - ready to learn
@@ -141,7 +141,7 @@ int check_button_state(int current_button_state, int new_button_state, int first
 }
 
 // this function is only a placeholder for when the learning fuction is not yet implemented
-unsigned int placeholder_button_state(int new_button_state){
+void placeholder_button_state(int new_button_state){
   //digitalWrite(TxD_pin, new_button_state);  // turn off LED (new_button_state = LOW) or // turn on LED (new_button_state = HIGH)
   
   #ifdef DEBUG
@@ -152,11 +152,6 @@ unsigned int placeholder_button_state(int new_button_state){
       Serial.println("0 -> 1"); // if new_button_state == HIGH
     }
   #endif
-
-  timer_value = TCNT1; // read timer value
-  //Serial.println(timer_value);
-
-  return timer_value;
 }
 
 // TBD: write the learn function here
@@ -168,6 +163,10 @@ int learn_radio_signal(int first_signal){
   Serial.println(first_signal);
   first_signal = set_counter_first_event(first_signal); // set counter to 0 at first event
   Serial.println(first_signal);
-  //time_stamp_millis = millis();
+
+  // TBD: The learn function needs to save the time_value and the type of the state change (from LOW to HIGH or HIGH to LOW) as data in an array.
+  //timer_value = TCNT1; // read timer value
+  //Serial.println(timer_value);
+
   return first_signal;
 }
